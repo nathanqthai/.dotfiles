@@ -1,10 +1,8 @@
 [user]
 	name = nqthai
 	email = nathanqthai@users.noreply.github.com
-
 [alias]
 	supdate = git submodule update --init --recursive
-
 [color]
 	ui = true
 [core]
