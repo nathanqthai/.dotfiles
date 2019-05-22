@@ -1,0 +1,9 @@
+[submodule "vim/.vim/bundle/gruvbox"]
+	path = vim/.vim/bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule "vim/.vim/bundle/vim-airline"]
+	path = vim/.vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim/.vim/bundle/YouCompleteMe"]
+	path = vim/.vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
