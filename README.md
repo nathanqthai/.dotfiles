@@ -9,6 +9,9 @@ vim:
     - `cmake`
 bash:
     `mdlive` alias:
-        - `mdless`, `gem install mdless`
-        - `inotifywatch`, `apt install inotify-tools`, linux
-        - `fswatch`, `brew install fswatch`, darwin
+        - darwin
+            - `fswatch`, `brew install fswatch`
+            - `mdcat`, brew install mdcat`
+        - linux
+            - `mdless`, `gem install mdless`
+            - `inotifywatch`, `apt install inotify-tools`, linux
