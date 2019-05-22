@@ -7,16 +7,16 @@ apt-get -y install xauth libx11-6 libxrender1 libxtst6 libxi6 libfontconfig1
 SCRIPT
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/bionic64"
+    config.vm.box = "geerlingguy/ubuntu1804"
 
     config.vm.provider "virtualbox" do |v|
         #v.memory = 4096
         #v.cpus = 2
-        v.name = "default"
+        #v.name = "default"
     end
 
     # configure hostname
-    config.vm.hostname = "default"
+    #config.vm.hostname = "vm"
 
     # message to user
     #config.vm.post_up_message = ""
@@ -28,11 +28,12 @@ Vagrant.configure("2") do |config|
     config.vm.provision "initial", type: "shell" do |init|
         init.inline = $apt_update
     end
-
+=begin
     config.vm.provision "default", type: "shell" do |default|
         ghidra.path = "provision/default.sh"
         ghidra.args = ["/vagrant", "/tmp"]
     end
+=end
 end
 
 
