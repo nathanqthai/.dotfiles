@@ -66,6 +66,7 @@ if has("autocmd")
     " generate templates
     augroup templates
         autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
+        autocmd BufNewFile *.md 0r ~/.vim/templates/skeleton.md
         autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
         autocmd BufNewFile Vagrantfile 0r ~/.vim/templates/skeleton.vagrant
     augroup END
