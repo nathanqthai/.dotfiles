@@ -26,10 +26,15 @@ set expandtab           " use spaces for tabs
 set softtabstop=4       " 4 space tab
 set shiftwidth=4
 set modelines=1
-filetype indent on
+filetype indent on      " filetype indent
 filetype plugin on
 set autoindent
 set nowrap
+
+" cursor
+set cursorline
+
+set showmatch           " show matching paren
 
 " ui
 set number              " show line numbers
