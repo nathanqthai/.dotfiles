@@ -43,26 +43,28 @@ set hlsearch            " highlight all matches
 " fix for backspace with YCM
 set backspace=indent,eol,start
 
-" clean trailing whitespace and save cursor
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
-"vagrant
-augroup vagrant
-    au!
-    au BufRead,BufNewFile Vagrantfile set filetype=ruby
-augroup end
-
-" generate templates
 if has("autocmd")
-  augroup templates
-    autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
-    autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
-    autocmd BufNewFile Vagrantfile 0r ~/.vim/templates/skeleton.vagrant
-  augroup END
+    " clean trailing whitespace and save cursor
+    fun! <SID>StripTrailingWhitespaces()
+        let l = line(".")
+        let c = col(".")
+        %s/\s\+$//e
+        call cursor(l, c)
+    endfun
+    autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+    "vagrant
+    augroup vagrant
+        au BufRead,BufNewFile Vagrantfile set filetype=ruby
+    augroup end
+
+    " generate templates
+    augroup templates
+        autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
+        autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
+        autocmd BufNewFile Vagrantfile 0r ~/.vim/templates/skeleton.vagrant
+    augroup END
+
+    " save line location
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
