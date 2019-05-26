@@ -13,7 +13,7 @@ if [ ! -f ./.installed ]; then
 fi
 
 # install dotfiles
-stow bash;
-stow git;
-stow vim;
-stow tmux;
+stow --verbose=3 bash;
+stow --verbose=3 git;
+stow --verbose=3 vim;
+stow --verbose=3 tmux;
