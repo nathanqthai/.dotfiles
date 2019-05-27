@@ -33,5 +33,5 @@ mdlive() {
 alias bedit='vim ~/.bash_profile'
 alias bsource='source ~/.bash_profile'
 
-. ~/.bashrc;
+. ~/.bashrc
 
