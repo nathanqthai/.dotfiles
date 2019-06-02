@@ -34,13 +34,8 @@ alias bedit='vim ~/.bash_profile'
 alias bsource='source ~/.bash_profile'
 
 # encryption tools
-encrypt() {
-    openssl enc -aes-256-cbc -salt -in $1 -out $2
-}
-
-decrypt() {
-    openssl enc -aes-256-cbc -d -in $1 -out $2
-}
+encrypt() { openssl enc -aes-256-cbc -salt -in $1 -out $2 }
+decrypt() { openssl enc -aes-256-cbc -d -in $1 -out $2 }
 
 . ~/.bashrc
 
