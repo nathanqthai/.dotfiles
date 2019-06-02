@@ -45,6 +45,10 @@ mdlive() {
 # bash stuff
 alias bedit='vim ~/.bash_profile'
 alias bsource='source ~/.bash_profile'
+alias balias='vim ~/.bash_aliases'
+
+# shortcuts
+alias svim='sudo vim'
 
 # encryption tools
 encrypt() {
