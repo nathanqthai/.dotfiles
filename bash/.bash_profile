@@ -5,6 +5,7 @@ if [[ $OSTYPE == "darwin"* ]]; then
     # homebrew paths
     alias vim='/usr/local/bin/vim'
     export PATH="/usr/local/bin:$PATH"
+    export EDITOR="/usr/local/bin/vim"
 fi
 
 # ls stuff
@@ -18,6 +19,11 @@ fi
 # live updates for mdfiles
 # gem install mdlive
 mdlive() {
+    if [ -z "$1" ]; then
+        echo "Usage: mdlive <markdown file>"
+        return 1
+    fi
+
     if [[ $OSTYPE == "darwin"* ]]; then
         fswatch $1 | xargs -n1 -I{} mdcat {};
     else
@@ -34,8 +40,37 @@ alias bedit='vim ~/.bash_profile'
 alias bsource='source ~/.bash_profile'
 
 # encryption tools
-encrypt() { openssl enc -aes-256-cbc -salt -in $1 -out $2 }
-decrypt() { openssl enc -aes-256-cbc -d -in $1 -out $2 }
+encrypt() {
+    if [ "$#" -ne 2 ]; then
+        echo "Usage: encrypt <input file> <output name>"
+        return 1
+    fi
+
+    openssl enc -aes-256-cbc -salt -in $1 -out $2
+}
+decrypt() {
+    if [ "$#" -ne 2 ]; then
+        echo "Usage: decrypt <input file> <output name>"
+        return 1
+    fi
+
+    openssl enc -aes-256-cbc -d -in $1 -out $2
+}
+
+# ip stuff
+pub_ip() {
+    echo $(dig +short myip.opendns.com @resolver1.opendns.com)
+}
+
+inf_ip() {
+    if [ -z "$1" ]; then
+        echo "Usage: inf_ip <interface>"
+        return 1
+    fi
+
+    ip=$(/sbin/ifconfig ${1} | awk '/inet/ { print $2 } ' |
+      sed -e s/addr://)
+    echo ${ip:-"Not Connected"}
+}
 
 . ~/.bashrc
-
