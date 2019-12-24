@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-# vim: set ts=4 sw=4 tw=4 sts=4 et :
+# vim: set ts=4 sw=4 ts=4 et :
 
 import argparse
 import logging
 import logging.config
 import os
 import sys
+import time
 
 log = logging.getLogger(__name__)
 
@@ -62,6 +63,13 @@ def main():
     if args.debug:
         logging.getLogger().setLevel(logging.DEBUG)
         log.debug("Debug mode enabled")
+
+    # profiling
+    s = time.perf_counter()
+
+
+    elasped = time.perf_counter - s
+    log.info('%s executed in %0.5f seconds.', __file__, elapsed)
 
 if __name__ == "__main__":
     main()

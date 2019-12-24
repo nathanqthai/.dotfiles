@@ -35,13 +35,13 @@ set nowrap
 " cursor
 set cursorline
 
-set showmatch           " show matching paren
 
 " ui
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 
 " search
+set showmatch           " show matching paren
 set ignorecase          " ignore case when searching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight all matches
@@ -71,6 +71,15 @@ if has("autocmd")
         autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
         autocmd BufNewFile Vagrantfile 0r ~/.vim/templates/skeleton.vagrant
     augroup END
+
+    au BufNewFile,BufRead *.py
+                \ set tabstop=4 |
+                \ set softtabstop=4 |
+                \ set shiftwidth=4 |
+                \ set textwidth=79 |
+                \ set expandtab |
+                \ set autoindent |
+                \ set fileformat=unix
 
     " save line location
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
