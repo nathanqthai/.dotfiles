@@ -10,9 +10,7 @@ if [[ $OSTYPE == "darwin"* ]]; then
     alias vim='/usr/local/bin/vim'
     export EDITOR="/usr/local/bin/vim" # this forces the homebrew vim at all times
     export PATH="/usr/local/bin:$PATH"
-else
-    export GITAWAREPROMPT=${DOTFILES}/bash/git-aware-prompt
-    source "${GITAWAREPROMPT}/main.sh"
+    export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
 # ls stuff
