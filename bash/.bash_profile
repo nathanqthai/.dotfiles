@@ -23,25 +23,6 @@ else
     alias ls='ls --color=auto -Flash'
 fi
 
-# live updates for mdfiles
-# gem install mdlive
-mdlive() {
-    if [ -z "$1" ]; then
-        echo "Usage: mdlive <markdown file>"
-        return 1
-    fi
-
-    if [[ $OSTYPE == "darwin"* ]]; then
-        fswatch $1 | xargs -n1 -I{} mdcat {};
-    else
-        while true; do
-            inotifywait -q -e close_write $1;
-            clear;
-            mdless $1 | cat;
-        done
-    fi
-}
-
 # bash stuff
 alias bedit='vim ~/.bash_profile'
 alias bsource='source ~/.bash_profile'
@@ -49,6 +30,7 @@ alias balias='vim ~/.bash_aliases'
 
 # shortcuts
 alias svim='sudo vim'
+alias create_py3env='python3 -m venv .venv'
 
 # encryption tools
 encrypt() {
@@ -68,6 +50,25 @@ decrypt() {
     openssl enc -aes-256-cbc -d -in $1 -out $2
 }
 
+# compression tools
+compress-tar-gz() {
+    if [ -z "$1" ]; then
+        echo "Usage: compress-tar-gz <target>"
+        return 1
+    fi
+
+    tar -czvf $1.tar.gz $1
+}
+
+decompress-tar-gz() {
+    if [ -z "$1" ]; then
+        echo "Usage: decompress-tar-gz <target>"
+        return 1
+    fi
+
+    tar -xzvf $1
+}
+
 # ip stuff
 pub_ip() {
     echo $(dig +short myip.opendns.com @resolver1.opendns.com)
@@ -85,3 +86,4 @@ inf_ip() {
 }
 
 . ~/.bashrc
+export PATH="/usr/local/sbin:$PATH"

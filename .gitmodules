@@ -13,3 +13,6 @@
 [submodule "bash/git-aware-prompt"]
 	path = bash/git-aware-prompt
 	url = git://github.com/jimeh/git-aware-prompt.git
+[submodule "vim/.vim/bundle/securemodelines"]
+	path = vim/.vim/bundle/securemodelines
+	url = https://github.com/ciaranm/securemodelines.git

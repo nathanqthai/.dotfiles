@@ -7,7 +7,7 @@ import logging.config
 import os
 import sys
 
-logger = logging.getLogger(__name__)
+log = logging.getLogger(__name__)
 
 def init_logger(log_path):
     if not os.path.exists(log_path):
@@ -58,10 +58,10 @@ def main():
 
     # initialize logging
     init_logger(args.log_path)
-    logging.info("Running {}".format(__file__))
+    log.info("Running {}".format(__file__))
     if args.debug:
         logging.getLogger().setLevel(logging.DEBUG)
-        logging.debug("Debug mode enabled")
+        log.debug("Debug mode enabled")
 
 if __name__ == "__main__":
     main()
