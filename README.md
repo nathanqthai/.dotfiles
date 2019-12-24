@@ -18,13 +18,6 @@ vim
 bash
   * `encrypt` and `decrypt` function:
     * `openssl`
-  * `mdlive` function:
-    * darwin
-      * `fswatch`, `brew install fswatch`
-      * `mdcat`, `brew install mdcat`
-    * linux
-      * `mdless`, `gem install mdless`
-      * `inotifywatch`, `apt install inotify-tools`
 
 ## Features
 A summary of added features.
@@ -51,7 +44,6 @@ A summary of added features.
 
 ### `.tmux.conf`
 * Custom colors
-* `ctrl-a` as an optional prefix
 * New windows and panes open in the `cwd`
 * Windows and panes indexed from 1
 
