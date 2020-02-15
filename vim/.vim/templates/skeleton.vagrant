@@ -3,7 +3,7 @@
 $apt_update = <<-SCRIPT
 apt-get update
 export DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
-apt-get -y tmux vim git
+apt-get install -y tmux vim git
 SCRIPT
 
 # x11 stuff
