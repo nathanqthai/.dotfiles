@@ -17,11 +17,6 @@ if [ ! -f ./.installed ]; then
     python3 install.py --clang-completer
     popd
 
-    # add a aliases if not already there
-    if [ ! -f ${HOME}/.bash_aliases ]; then
-        touch .bash_aliases
-    fi
-
     touch .installed
     echo "[+] Done!"
 else
