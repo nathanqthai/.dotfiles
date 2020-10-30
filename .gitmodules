@@ -13,3 +13,9 @@
 [submodule "vim/.vim/bundle/securemodelines"]
 	path = vim/.vim/bundle/securemodelines
 	url = https://github.com/ciaranm/securemodelines.git
+[submodule "vim/.vim/bundle/nerdtree"]
+	path = vim/.vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "vim/.vim/bundle/nerdtree-git-plugin"]
+	path = vim/.vim/bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git

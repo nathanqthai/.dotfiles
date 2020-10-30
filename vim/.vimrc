@@ -4,6 +4,9 @@ execute pathogen#infect()
 " general display
 set t_Co=256
 
+" nerdtree
+let NERDTreeShowHidden=1
+
 " gruvbox coloring
 colorscheme gruvbox
 set background=dark
@@ -72,6 +75,20 @@ if has("autocmd")
         autocmd BufNewFile Vagrantfile 0r ~/.vim/templates/skeleton.vagrant
     augroup END
 
+    " nerdtree
+    augroup nerdtree
+        " exit if last buffer
+        autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+        " dont allow overwrite of nerdtree buffer
+        autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+
+        " open nerdtree if no files open
+        autocmd StdinReadPre * let s:std_in=1
+        autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    augroup end
+
+    " python
     au BufNewFile,BufRead *.py
                 \ set tabstop=4 |
                 \ set softtabstop=4 |
