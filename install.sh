@@ -26,7 +26,7 @@ fi
 
 # install dotfiles
 echo "[-] Symlinking dotfiles..."
-stow --restow --verbose=1 --target=${HOME} bash;
+#stow --restow --verbose=1 --target=${HOME} bash;
 stow --restow --verbose=1 --target=${HOME} git;
 stow --restow --verbose=1 --target=${HOME} vim;
 stow --restow --verbose=1 --target=${HOME} tmux;
